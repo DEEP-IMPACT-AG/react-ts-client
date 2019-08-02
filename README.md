@@ -1,5 +1,5 @@
 # React-TS-Client
- [![CircleCI](https://circleci.com/gh/luangjokaj/react-fondue/tree/master.svg?style=svg)](https://circleci.com/gh/luangjokaj/react-fondue/tree/master) [![Dependencies](https://david-dm.org/luangjokaj/react-fondue/status.svg)](https://david-dm.org/luangjokaj/react-fondue)
+[![Dependencies](https://david-dm.org/DEEP-IMPACT-AG/react-ts-client/status.svg)](https://david-dm.org/DEEP-IMPACT-AG/react-ts-client)
 
 React-TS-Client is minimal client side React boilerplate with support for hot module reload, TypeScript and up-to-date dependencies.
 
@@ -38,7 +38,7 @@ npm run lint
 npm run prod
 ```
 
-### Start Server
+### Start server
 ```
 npm run start
 ```
