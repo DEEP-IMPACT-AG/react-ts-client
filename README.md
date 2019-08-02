@@ -1,7 +1,7 @@
 # React-TS-Client
 [![Dependencies](https://david-dm.org/DEEP-IMPACT-AG/react-ts-client/status.svg)](https://david-dm.org/DEEP-IMPACT-AG/react-ts-client)
 
-React-TS-Client is minimal client side React boilerplate with support for hot module reload, TypeScript and up-to-date dependencies.
+[React-TS-Client](https://github.com/DEEP-IMPACT-AG/react-ts-client/) is minimal client side React boilerplate with support for hot module reload, TypeScript and up-to-date dependencies.
 
 ![Technologies](https://raw.githubusercontent.com/luangjokaj/react-fondue/master/src/assets/img/tech-stack.svg?sanitize=true)
 
