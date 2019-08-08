@@ -7,8 +7,12 @@ const createStyledComponentsTransformer = require('typescript-plugin-styled-comp
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
+	mode: 'development',
 	entry: {
-		main: './src/index.tsx',
+		index: [
+			'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+			'./src/index.tsx',
+		],
 	},
 	devtool: 'inline-source-map',
 	output: {
@@ -18,8 +22,10 @@ module.exports = {
 	},
 	resolve: {
 		extensions: ['.js', '.jsx', '.ts', '.tsx'],
+		alias: {
+			'react-dom': '@hot-loader/react-dom',
+		},
 	},
-
 	module: {
 		rules: [
 			{
@@ -73,6 +79,7 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'awesome-typescript-loader',
 				options: {
+					useCache: true,
 					getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
 				},
 			},
@@ -91,12 +98,4 @@ module.exports = {
 			chunkFilename: '[name].css',
 		}),
 	],
-
-	devServer: {
-		contentBase: './public',
-		hot: true,
-		port: 8888,
-		host: 'localhost',
-		historyApiFallback: true,
-	},
 };

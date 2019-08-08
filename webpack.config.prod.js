@@ -1,12 +1,14 @@
+const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
+	mode: 'production',
 	entry: {
 		main: './src/index.tsx',
 	},
@@ -72,6 +74,7 @@ module.exports = {
 				exclude: /node_modules/,
 				loader: 'awesome-typescript-loader',
 				options: {
+					useCache: true,
 					getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
 				},
 			},
@@ -86,6 +89,12 @@ module.exports = {
 			filename: '[name].[contenthash].css',
 		}),
 		new CopyWebpackPlugin([{ context: './src/assets', from: '**', to: 'assets' }]),
+		new webpack.DefinePlugin({
+			'process.env': {
+				NODE_ENV: JSON.stringify('production'),
+				WEBPACK: true,
+			},
+		}),
 	],
 
 	devtool: 'source-map',

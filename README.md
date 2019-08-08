@@ -23,7 +23,7 @@ npm install
 ```
 
 ### Runs the app in the development mode
-Build and open your browser to http://localhost:8888.
+Build and open your browser to http://localhost:9000.
 ```
 npm run dev
 ```
