@@ -26,4 +26,4 @@ app.all('/*', (req, res) => {
 
 app.listen(port);
 
-console.log('Server listening on port', port);
+console.log(`Server listening on port \x1b[42m\x1b[1mhttp://localhost:${port}\x1b[0m 🌎...`);
