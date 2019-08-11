@@ -11,7 +11,8 @@
 		"lint:fix": "eslint src/**/*.tsx --fix",
 		"lint": "npm run lint:css && npm run lint:tsx",
 		"type-check": "tsc",
-		"heroku-postbuild": "npm run prod"
+		"heroku-postbuild": "npm run prod",
+		"format": "prettier --write \"./src/**/*.{js,json,ts,tsx}\" \"!.node_modules/**\""
 	},
 	"repository": {
 		"type": "git",
@@ -65,7 +66,7 @@
 		"postcss-loader": "^3.0.0",
 		"postcss-mixins": "^6.2.2",
 		"postcss-preset-env": "^6.7.0",
-		"prettier": "1.18.2",
+		"prettier": "^1.18.2",
 		"react": "16.9.0",
 		"react-dom": "16.9.0",
 		"react-hot-loader": "^4.12.10",

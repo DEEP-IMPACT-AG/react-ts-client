@@ -13,7 +13,7 @@ const App = () => {
 			</ScrollToTop>
 		</Router>
 	);
-}
+};
 
 const AppRoot = hot(module)(() => <App />);
 

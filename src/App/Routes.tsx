@@ -6,12 +6,8 @@ import { Home, NotFound } from '../Views';
 export default () => (
 	<BrowserRouter>
 		<Switch>
-			<Route
-				exact
-				path="/"
-				render={routeProps => <Home />}
-			/>
-			<Route render={routeProps => <NotFound />} />
+			<Route exact path="/" render={(routeProps) => <Home />} />
+			<Route render={(routeProps) => <NotFound />} />
 		</Switch>
 	</BrowserRouter>
 );
