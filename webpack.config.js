@@ -3,7 +3,8 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+	.default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
@@ -35,8 +36,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /node_modules/,
-				use:[
+				use: [
 					'css-hot-loader',
 					MiniCssExtractPlugin.loader,
 					{
@@ -46,7 +46,8 @@ module.exports = {
 							importLoaders: 1,
 							modules: {
 								mode: 'local',
-								localIdentName: '[name]__[local]--[hash:base64:5]',
+								localIdentName:
+									'[name]__[local]--[hash:base64:5]',
 							},
 						},
 					},
@@ -57,12 +58,17 @@ module.exports = {
 							ident: 'postcss',
 						},
 					},
-				], 
+				],
 			},
 			{
 				test: /\.less$/,
 				exclude: /node_modules/,
-				loaders: ['css-hot-loader', MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+				loaders: [
+					'css-hot-loader',
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'less-loader',
+				],
 			},
 			{
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
@@ -80,7 +86,9 @@ module.exports = {
 				loader: 'awesome-typescript-loader',
 				options: {
 					useCache: true,
-					getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+					getCustomTransformers: () => ({
+						before: [styledComponentsTransformer],
+					}),
 				},
 			},
 		],

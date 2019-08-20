@@ -4,7 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
-const createStyledComponentsTransformer = require('typescript-plugin-styled-components').default;
+const createStyledComponentsTransformer = require('typescript-plugin-styled-components')
+	.default;
 const styledComponentsTransformer = createStyledComponentsTransformer();
 
 module.exports = {
@@ -29,8 +30,7 @@ module.exports = {
 			},
 			{
 				test: /\.css$/,
-				exclude: /node_modules/,
-				use:[
+				use: [
 					MiniCssExtractPlugin.loader,
 					{
 						loader: 'css-loader',
@@ -47,7 +47,7 @@ module.exports = {
 							ident: 'postcss',
 						},
 					},
-				], 
+				],
 			},
 			{
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
@@ -62,7 +62,11 @@ module.exports = {
 			{
 				test: /\.less$/,
 				exclude: /node_modules/,
-				loaders: [MiniCssExtractPlugin.loader, 'css-loader', 'less-loader'],
+				loaders: [
+					MiniCssExtractPlugin.loader,
+					'css-loader',
+					'less-loader',
+				],
 			},
 			{
 				test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
@@ -75,7 +79,9 @@ module.exports = {
 				loader: 'awesome-typescript-loader',
 				options: {
 					useCache: true,
-					getCustomTransformers: () => ({ before: [styledComponentsTransformer] }),
+					getCustomTransformers: () => ({
+						before: [styledComponentsTransformer],
+					}),
 				},
 			},
 		],
@@ -88,7 +94,9 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].[contenthash].css',
 		}),
-		new CopyWebpackPlugin([{ context: './src/assets', from: '**', to: 'assets' }]),
+		new CopyWebpackPlugin([
+			{ context: './src/assets', from: '**', to: 'assets' },
+		]),
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify('production'),
